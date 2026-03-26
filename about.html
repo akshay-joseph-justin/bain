@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us</title>
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+:root {
+    --primary: rgb(216,87,91);
+    --yellow: rgba(196,196,2,1);
+    --teal: rgba(0,158,110,1);
+    --green: rgba(2,183,36,1);
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.7);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--primary);
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-whatsapp {
+    background: linear-gradient(45deg, var(--green), var(--teal));
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* HERO */
+.about-hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.about-hero h1 {
+    font-size: 48px;
+}
+
+/* ABOUT SECTION */
+.about-section {
+    padding: 80px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.about-section:hover {
+    transform: translateY(-5px);
+}
+
+.about-text h2 {
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* REVERSE LAYOUT */
+.about-section.reverse .about-text {
+    order: 2;
+}
+
+.about-section.reverse .about-img {
+    order: 1;
+}
+
+/* FOOTER */
+footer {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* WHATSAPP FLOAT */
+.mobile-whatsapp {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--green);
+    color: white;
+    font-size: 26px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: white;
+        width: 220px;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-whatsapp {
+        display: none;
+    }
+
+    .mobile-whatsapp {
+        display: block;
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+    }
+
+    .about-section.reverse .about-text,
+    .about-section.reverse .about-img {
+        order: unset;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero h1 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">MyBrand</div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="#" style="color: var(--primary);">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <a href="https://wa.me/919448054187" target="_blank" class="nav-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i> Chat
+    </a>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+    <h1>About Us</h1>
+</section>
+
+<!-- ABOUT 1 -->
+<section class="about-section">
+    <div class="about-text">
+        <h2>OUR PURPOSE</h2>
+        <p>At "BAIN CONSULTANCY" , we are committed to build a better working world — with increased trust and confidence in business, sustainable growth, development of talent in all forms with greater collaboration.</p>
+        <p>We want to build a better working atmosphere through our own actions by engaging with like-minded organizations and individuals. </p>
+
+          <h2>Why We Exist as an Organization</h2>
+        <p>What would it be --if every Owner of company   could find a perfect consultant without searching for hours at fair price?</p>
+        <p>Our goal is to drive growth, inspire confidence, and create long-term success for our clients.</p>
+    </div>
+
+    <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="">
+    </div>
+</section>
+
+<!-- ABOUT 2 (REVERSED) -->
+<section class="about-section reverse">
+    <div class="about-text">
+        <h2>Why We Exist as an Organization</h2>
+        <p>What would it be --if every Owner of company   could find a perfect consultant without searching for hours at fair price?</p>
+        <p>Our goal is to drive growth, inspire confidence, and create long-term success for our clients.</p>
+    </div>
+
+    <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="">
+    </div>
+</section>
+
+<!-- WHATSAPP MOBILE -->
+<a href="https://wa.me/919448054187" target="_blank" class="mobile-whatsapp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 MyBrand. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> BAIN CONSULTANCY </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+.logo img {
+    height: 70px;
+    width: auto;
+    display: block;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+:root {
+    --primary: rgb(216,87,91);
+    --yellow: rgba(196,196,2,1);
+    --teal: rgba(0,158,110,1);
+    --green: rgba(2,183,36,1);
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.7);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+}
+
+/* underline animation */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--primary);
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* NAV WHATSAPP */
+.nav-whatsapp {
+    background: linear-gradient(45deg, var(--green), var(--teal));
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-whatsapp:hover {
+    transform: scale(1.05);
+}
+
+/* MOBILE MENU */
+.menu-btn {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    margin-bottom: 25px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--green);
+    transform: translateY(-2px);
+}
+
+/* FEATURES */
+.features {
+    padding: 80px 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card i {
+    font-size: 35px;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+.footer {
+    background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
+    color: #fff;
+    padding-top: 50px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 8%;
+    gap: 40px;
+}
+
+/* LOGO */
+.footer-logo {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+/* HEADINGS */
+.footer-col h3 {
+    margin-bottom: 15px;
+}
+
+/* LINKS */
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary);
+    padding-left: 5px;
+}
+
+/* CONTACT */
+.footer-col p {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.footer-col i {
+    margin-right: 8px;
+    color: var(--primary);
+}
+
+/* BOTTOM */
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    color: #aaa;
+}
+.footer-logo {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-col {
+        margin-bottom: 20px;
+    }
+}
+
+/* WHATSAPP FLOAT */
+.mobile-whatsapp {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--green);
+    color: white;
+    font-size: 26px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+    animation: pulse 1.5s infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(2,183,36,0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(2,183,36,0); }
+    100% { box-shadow: 0 0 0 0 rgba(2,183,36,0); }
+}
+
+
+/* ABOUT SECTION */
+.about-section {
+    padding: 80px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.about-section:hover {
+    transform: translateY(-5px);
+}
+
+.about-text h2 {
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* REVERSE LAYOUT */
+.about-section.reverse .about-text {
+    order: 2;
+}
+
+.about-section.reverse .about-img {
+    order: 1;
+}
+
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: white;
+        width: 220px;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-whatsapp {
+        display: none;
+    }
+
+    .mobile-whatsapp {
+        display: block;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    
+    .about-section {
+        grid-template-columns: 1fr;
+    }
+
+    .about-section.reverse .about-text,
+    .about-section.reverse .about-img {
+        order: unset;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero h1 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">
+    <img src="img/logo.jpeg" alt="MyBrand Logo">
+</div>
+
+    <div class="nav-links" id="navLinks">
+        <a style="color: var(--primary);" href="#">Home</a>
+        <a href="landtrading.html">Land Trading </a>
+        <a href="bankinsrument.html">Banking Instrument </a>
+        <a href="realestate.html">Real Estate</a>
+        <!-- <a href="#">Services</a> -->
+        <a href="contact.html">Contact</a>
+        
+    <a href="https://wa.me/919448054187" target="_blank" class="nav-whatsapp text-white">
+        <i class="fa-brands fa-whatsapp text-white"></i> Chat
+    </a>
+
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>Welcome To <span class="fw-bold">BAIN CONSULTANCY</span></h1>
+        <p>Goods and Services Tax Identification Number: 30AOMPT5456K2ZG</p>
+        <button class="btn">Get Started</button>
+    </div>
+</section>
+
+<!-- ABOUT 1 -->
+<section class="about-section">
+    <div class="about-text">
+        <h2>OUR PURPOSE</h2>
+        <p>At "BAIN CONSULTANCY" , we are committed to build a better working world — with increased trust and confidence in business, sustainable growth, development of talent in all forms with greater collaboration.</p>
+        <p>We want to build a better working atmosphere through our own actions by engaging with like-minded organizations and individuals. </p>
+
+          <h2>Why We Exist as an Organization</h2>
+        <p>What would it be --if every Owner of company   could find a perfect consultant without searching for hours at fair price?</p>
+        
+    </div>
+
+    <div class="about-img">
+        <img src="img/logo.jpeg" alt="">
+    </div>
+</section>
+
+<!-- ABOUT 2 (REVERSED) -->
+<section class="about-section reverse">
+    <div class="about-text">
+        
+        <p><span class="fw-bold"> "BAIN CONSULTANCY" </span> Founded in Goa State – India
+            We are a registered firm.  working  Since October 2016   
+            Founded by  Dr. JOSE J THAIKKATTIL 
+            ENGINEER from  Souphanouvong University -  LAOS ),  
+            Master of  Science  from  HARVARD UNIVERSITY USA.
+            PhD. From CALGARY UNIVERSITY, MEXICO.
+            </p>
+
+            <p>"BAIN" is bringing his vision into life. As online marketplace for
+            independent top management consultant with expertise in industry.
+            </p>
+
+            <p>At  "BAIN" we are  providing  consultation to clients who are  in need of external support for a projects based on an algorithm combined with personal experience of employees.</p>
+        
+    </div>
+
+    <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="">
+    </div>
+</section>
+
+
+
+<!-- FEATURES -->
+ <section class="features">
+    <div class="card">
+        <i class="fa-solid fa-palette"></i>
+        <h3>Our core values </h3>
+        <p>high quality standards, excellent customer service with quick handling of every project, briefing with a  transparency.</p>
+    </div>
+    <div class="card">
+        <i class="fa-solid fa-mobile-screen"></i>
+        <h3>Our expertise </h3>
+        <p>Heavy Liquid metal separation technology ( Solution’s )</p>
+    </div>
+    <div class="card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>International Investments </h3>
+        <p>Asset Based , Equity based, { conditions apply} </p>
+    </div>
+
+      <div class="card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>International loans </h3>
+        <p>: for mining & construction, industrial, manufacturing,  projects,  with valid documentations & assets { conditions apply}</p>
+    </div>
+      <div class="card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Provide Crypto  </h3>
+        <p>Tylor made solutions  of your needs</p>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>All type of banking instruments,  </h3>
+        <p>Tylor made solutions  of your needs</p>
+    </div>
+    <div class="card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Import Galina, Gold and other minerals </h3>
+        <p>recycled iron bricks, copper bricks, metal scraps etc.</p>
+    </div>
+
+<div class="card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Export all type of Agro products  </h3>
+        <p>like. Spices. Coconut,  soya meal, Sugar. Brown Sugar, cooking Oil, etc.tc..</p>
+        <p>Frozen read meet, Frozen chicken meet, (all halal  certified )</p>
+    </div>
+    <div class="card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Export</h3>
+        <p>contract based software development. & software solution’s</p>
+        <p>We can  deal with D2- 5000PPM / D2-10PPM, in Bulk on DLC  terms /  Deal with all petroleum products & Petrol Chemical Products</p>
+    </div>
+    <div class="card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Intellectual Property </h3>
+        <p>We can do all your Intellectual Property work to be registered Internationally (Check detailed Information in Drop menu)</p>
+    </div>
+
+</section> 
+
+<section style="padding: 80px 8%;">
+
+
+<p>As "BAIN" consultant and an industry expert  we cover all important industries and functional companies of all sizes to  use the marketplace, among them are international corporates, Private Equity houses as well as consultancies,</p>
+       <p> Start-up’s and SME’s. Even those companies who have never engaged consultants before "BAIN" is the perfect choice, thanks to our simple approach and high service level in the project setup phase.
+        </p>
+</section>        
+
+<!-- ABOUT 1 -->
+<section class="about-section">
+    <div class="about-text">
+        
+        
+          <h2>Client benefits and Time </h2>
+        <p>By  handing over the complete research process to "BAIN" clients save valuable time for better purposes.</p>
+            <p>They stay very flexible with the option to request candidates for projects 24/7 and will receive suggestions quickly, even within 24 working hours if required.</p>
+            <P>Clients  receive an additional and cost-free channel of acquisition for interesting projects and be able to focus on what they do best and love most.</P>
+            <p>Consulting. Digital Time tracking, billing- and evaluation tools reduce admin work to a minimum along the whole project lifecycle.</p>
+
+        </p>
+        
+    </div>
+
+    <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="">
+    </div>
+</section>
+
+<!-- ABOUT 2 (REVERSED) -->
+<section class="about-section reverse">
+    <div class="about-text">
+        
+          <h2>Talent </h2>
+        <p>Being part of the COMATCH pool helps to build the clients’ profile as it serves as a label of quality. Surrounded by other like minded talents the client will benefit from professional exchange of knowledges and networking.
+
+            </p>
+
+               <h2>Trust </h2>
+
+
+        <p>BAIN acts as an agent for the consultant; our community management is a loyal support for one’s   needs and on a pragmatic level offers several affiliated programs</p>
+        <P>Clients can really on our confidentiality, quality standards and transparency policy.</P>
+        <p>They will experience our good customer relations and   will be supported by a personal, experienced contact: </p>
+        <p>A recommendation rate of 95% is a nice and satisfactorily result for us.</p>
+ 
+
+    </div>
+
+    <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="">
+    </div>
+</section>
+
+<a href="https://wa.me/919448054187" target="_blank" class="mobile-whatsapp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- FOOTER --><footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- LEFT: LOGO -->
+        <div class="footer-col">
+            <img src="img/logo.jpeg" alt="MyBrand Logo" class="footer-logo">
+            <p>BAIN CONSULTANCY </p>
+        </div>
+
+        <!-- CENTER: QUICK LINKS -->
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="landtrading.html">Land Trading</a></li>
+                <li><a href="bankinsrument.html">Banking Instrument</a></li>
+                <li><a href="realestate.html">Real Estate</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- RIGHT: CONTACT -->
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <!-- <p><i class="fa-solid fa-phone"></i> +91 97444 57888</p> -->
+            <p><i class="fa-solid fa-envelope"></i> bainconsultancy@inbox.lv  </p>
+            <p><i class="fa-solid fa-location-dot"></i> Dr Jose Johny Thaikkattil,
+                                                      <br> &nbsp;  #518-1, Block-A, Cottarbat Aldona,
+                                                      <br> &nbsp;  North Goa  </p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 BAIN CONSULTANCY. All rights reserved.</p>
+    </div>
+
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>

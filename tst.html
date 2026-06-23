@@ -10,7 +10,140 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
+/* =====================================
+   FINAL RESPONSIVE NAVBAR FIX
+   ADD THIS AT THE VERY END OF CSS
+===================================== */
+.menu-btn{
+    display:none !important;
+    font-size:32px;
+    cursor:pointer;
+}
 
+/* Mobile Only */
+@media (max-width:768px){
+
+    .menu-btn{
+        display:block !important;
+    }
+
+}
+
+@media screen and (max-width:768px){
+
+    nav{
+        padding:12px 20px !important;
+        position:fixed !important;
+        top:0;
+        left:0;
+        width:100%;
+        z-index:9999;
+    }
+
+    /* Bigger Logo */
+    .logo img{
+        height:75px !important;
+        width:auto !important;
+    }
+
+    /* Menu Icon */
+    .menu-btn{
+        display:block !important;
+        font-size:32px;
+        color:#333;
+        cursor:pointer;
+        z-index:10001;
+    }
+
+    /* Full Screen Sidebar */
+    .nav-links{
+        position:fixed !important;
+        top:0;
+        right:-100%;
+        width:100% !important;
+        height:100vh !important;
+        background:linear-gradient(
+            135deg,
+            #ff4d6d,
+            #7b2ff7,
+            #00d4ff
+        ) !important;
+
+        display:flex !important;
+        flex-direction:column;
+        justify-content:flex-start;
+        align-items:center;
+
+        padding-top:120px;
+        transition:0.4s ease;
+        overflow-y:auto;
+        z-index:10000;
+    }
+
+    .nav-links.active{
+        right:0 !important;
+    }
+
+    .nav-links a,
+    .dropbtn{
+        width:90%;
+        text-align:center;
+        color:#fff !important;
+        font-size:18px;
+        padding:16px;
+        border-bottom:1px solid rgba(255,255,255,0.15);
+    }
+
+    /* Mobile Dropdown */
+    .dropdown{
+        width:100%;
+        text-align:center;
+    }
+
+    .dropdown-content{
+        display:block !important;
+        position:static !important;
+        width:90%;
+        margin:auto;
+        background:rgba(255,255,255,0.12) !important;
+        backdrop-filter:blur(10px);
+        box-shadow:none !important;
+        border-radius:15px;
+    }
+
+    .dropdown-content a{
+        color:#fff !important;
+        padding:12px;
+        font-size:15px;
+        border:none;
+    }
+
+    .dropdown-content a:hover{
+        background:rgba(255,255,255,0.15);
+    }
+
+    /* Hide Navbar WhatsApp */
+    .nav-whatsapp{
+        display:none !important;
+    }
+
+    /* Show Floating WhatsApp */
+    .mobile-whatsapp{
+        display:flex !important;
+        align-items:center;
+        justify-content:center;
+        width:65px;
+        height:65px;
+        font-size:30px;
+        bottom:20px;
+        right:20px;
+        z-index:99999;
+    }
+
+    body{
+        overflow-x:hidden;
+    }
+}
 
 .logo img {
     height: 70px;
@@ -900,7 +1033,16 @@ nav{
     }
 
 }
+.menu-btn{
+    display:block;
+    font-size:32px;
+    cursor:pointer;
+    z-index:10001;
+}
 
+.menu-btn i{
+    transition:0.3s;
+}
 
 </style>
 </head>
@@ -913,6 +1055,8 @@ nav{
         <img src="img/logo.png" alt="MyBrand Logo">
     </div>
 
+    
+    
     <div class="nav-links" id="navLinks">
         <a style="color: var(--primary);" href="#">Home</a>
 
@@ -940,7 +1084,6 @@ nav{
 
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </nav>
-
 
 <!-- HERO -->
 <section class="hero">
@@ -1187,7 +1330,7 @@ Domestic and international</h3>
     </div>
 
     <div class="footer-bottom">
-        <p>© 2026 BAIN CONSULTANCY. All rights reserved. | Powered By <a class="text-black fw-bold" style="text-decoration: none;" href=""> DAWNET INNOVATIONS </a></p>
+        <p>© 2026 BAIN CONSULTANCY. All rights reserved. | Powered By  <a class="text-white fw-bold" style="text-decoration: none;" href=""> DAWNET INNOVATIONS </a></p>
     </div>
 
 </footer>
@@ -1196,7 +1339,9 @@ Domestic and international</h3>
 function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("active");
 }
+
 </script>
+
 
 <script>
 function toggleDropdown() {
